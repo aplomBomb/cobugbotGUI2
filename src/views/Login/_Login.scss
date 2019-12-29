@@ -10,9 +10,11 @@
   transition-timing-function: ease-out;
   .usernameInput {
     margin-bottom: 0.5rem;
+    user-select: none;
   }
   .passwordInput {
     margin-top: 0.5rem;
+    user-select: none;
   }
 }
 .loginContainerVisible {
@@ -27,8 +29,10 @@
   transition-timing-function: ease-out;
   .usernameInput {
     margin-bottom: 0.5rem;
+    user-select: none;
   }
   .passwordInput {
     margin-top: 0.5rem;
+    user-select: none;
   }
 }
