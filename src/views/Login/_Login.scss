@@ -16,6 +16,15 @@
     margin-top: 0.5rem;
     user-select: none;
   }
+  .loginConfirmButton {
+    justify-content: center;
+    align-content: center;
+    width: 4rem;
+    height: 2rem;
+    justify-self: flex-end;
+    margin: 0.5rem 0 0 auto;
+    font-weight: bolder;
+  }
 }
 .loginContainerVisible {
   visibility: visible;
@@ -34,5 +43,15 @@
   .passwordInput {
     margin-top: 0.5rem;
     user-select: none;
+  }
+  .loginConfirmButton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 4rem;
+    height: 2rem;
+    justify-self: flex-end;
+    margin: 0.5rem 0 0 auto;
+    font-weight: bolder;
   }
 }

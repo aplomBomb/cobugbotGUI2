@@ -14,7 +14,7 @@ export const Splash = () => {
       setLoginClassName("Hidden");
       setLoginLinkState('Inactive');
     }
-  });
+  }, [loginActive]);
 
   return (
     <div className="splashContainer">
