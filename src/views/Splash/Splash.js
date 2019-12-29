@@ -8,10 +8,10 @@ export const Splash = () => {
       <h1>Cobugbot</h1>
       <div className="linksContainer">
         <Link className="loginLink" to="/login">
-          <h3>Login</h3>
+          <h2>Login</h2>
         </Link>
         <Link className="aboutLink" to="/about">
-          <h3>About</h3>
+          <h2>About</h2>
         </Link>
       </div>
     </div>

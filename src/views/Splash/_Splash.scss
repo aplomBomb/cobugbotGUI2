@@ -1,31 +1,35 @@
 .splashContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #36393e;
+  h1 {
+    font-family: Bangers;
+    font-size: 10rem;
+    color: #b1adad;
+    margin: 0;
+    text-shadow: 1px 1px 2px purple;
+  }
+  .linksContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #36393E;
-    h1 {
-        font-size: 5rem;
-        font-weight: bolder;
+    flex-direction: row;
+    .loginLink {
+      text-decoration: none;
+      margin: 1rem 0.5rem 0 0.5rem;
+      color: #9e8029;
+      font-size: 1rem;
     }
-    .linksContainer {
-        display: flex;
-        flex-direction: row;
-        .loginLink {
-            text-decoration: none;
-            margin: 1rem .5rem 0 .5rem;
-            color: white;
-        }
-        .aboutLink {
-            text-decoration: none;
-            margin: 1rem .5rem 0 .5rem;
-            color: white;
-        }
+    .aboutLink {
+      text-decoration: none;
+      margin: 1rem 0.5rem 0 0.5rem;
+      color: #9e8029;
+      font-size: 1rem;
     }
-    
+  }
 }
