@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import './index.scss'
 import { Splash, Login, About, Home, FouRoFour } from "./views/index";
 
 const App = () => {

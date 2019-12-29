@@ -1,0 +1,31 @@
+.splashContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #36393E;
+    h1 {
+        font-size: 5rem;
+        font-weight: bolder;
+    }
+    .linksContainer {
+        display: flex;
+        flex-direction: row;
+        .loginLink {
+            text-decoration: none;
+            margin: 1rem .5rem 0 .5rem;
+            color: white;
+        }
+        .aboutLink {
+            text-decoration: none;
+            margin: 1rem .5rem 0 .5rem;
+            color: white;
+        }
+    }
+    
+}
