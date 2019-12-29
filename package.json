@@ -34,6 +34,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080"
-
+  "proxy": "http://localhost:8080",
+  "resolutions": {
+    "serialize-javascript": "^2.1.1"
+  }
 }
