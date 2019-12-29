@@ -1,15 +1,30 @@
 const express = require('express');
-const bodyParser = require('body-parser')
 const path = require('path');
+const uuid = require('uuid/v4')
 const app = express();
-app.use(express.static(path.join(__dirname, 'build')));
+const session = require('express-session')
+const FileStore = require('session-file-store')(session);
 
-app.get('/ping', function (req, res) {
- return res.send('pong');
-});
+
+// add & configure middleware
+app.use(session({
+  genid: (req) => {
+    console.log('Inside the session middleware')
+    console.log(req.sessionID)
+    return uuid() // use UUIDs for session IDs
+  },
+  store: new FileStore(),
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  console.log(req)
+  const uniqueId = uuid()
+  res.send(`Here's a unique UUID: ${uniqueId}`)
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`Listening on port ${process.env.PORT || 8080}`)
+});

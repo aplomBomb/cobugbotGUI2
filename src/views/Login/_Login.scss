@@ -39,10 +39,14 @@
   .usernameInput {
     margin-bottom: 0.5rem;
     user-select: none;
+    border-radius: 5px;
+    outline: none;
   }
   .passwordInput {
     margin-top: 0.5rem;
     user-select: none;
+    border-radius: 5px;
+    outline: none;
   }
   .loginConfirmButton {
     display: flex;
@@ -53,5 +57,9 @@
     justify-self: flex-end;
     margin: 0.5rem 0 0 auto;
     font-weight: bolder;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px black;
+    user-select: none;
+    outline: none;
   }
 }

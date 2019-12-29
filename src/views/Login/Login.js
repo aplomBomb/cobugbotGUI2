@@ -19,7 +19,7 @@ export const Login = ({ classNameShit }) => {
     <div className={`loginContainer${classNameShit}`}>
       <input
         className="usernameInput"
-        placeholder="Username"
+        placeholder=" Username"
         onChange={(e) => setLoginCredentials({
           ...loginCredentials,
           username: e.target.value
@@ -27,7 +27,7 @@ export const Login = ({ classNameShit }) => {
       />
       <input
         className="passwordInput"
-        placeholder="Password"
+        placeholder=" Password"
         onChange={(e) => setLoginCredentials({
           ...loginCredentials,
           password: e.target.value
