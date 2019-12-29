@@ -1,0 +1,34 @@
+.loginContainerHidden {
+  visibility: hidden;
+  opacity: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 10vh;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  .usernameInput {
+    margin-bottom: 0.5rem;
+  }
+  .passwordInput {
+    margin-top: 0.5rem;
+  }
+}
+.loginContainerVisible {
+  visibility: visible;
+  opacity: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 10vh;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  .usernameInput {
+    margin-bottom: 0.5rem;
+  }
+  .passwordInput {
+    margin-top: 0.5rem;
+  }
+}

@@ -24,6 +24,9 @@
       margin: 1rem 0.5rem 0 0.5rem;
       color: #9e8029;
       font-size: 1rem;
+      :hover {
+        cursor: pointer;
+      }
     }
     .aboutLink {
       text-decoration: none;
