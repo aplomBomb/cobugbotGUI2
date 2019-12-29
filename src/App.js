@@ -1,13 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import { Route, Switch } from "react-router";
 
-function App() {
-  return (
-    <div className="App">
-      COBUGBOTgui
-    </div>
-  );
-}
+let routes = (
+  <Switch>
+    <Route exact path="/">
+      <Splash />
+    </Route>
+    <Route  path="/login">
+      <Login />
+    </Route>
+    <Route path="/about">
+      <About />
+    </Route>
+    <Route exact path="/home">
+      <Home />
+    </Route>
+    <Route>
+      <FouRoFour />
+    </Route>
+  </Switch>
+);
 
 export default App;
