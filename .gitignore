@@ -24,3 +24,5 @@ yarn-error.log*
 insults.json
 /sessions
 cookie-file.txt
+/src/config
+/src/models
