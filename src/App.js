@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './index.scss'
-import { Splash, Login, About, Home, FouRoFour } from "./views/index";
+import { Splash, About, Home, FouRoFour } from "./views/index";
+import {Login} from './components/auth/Login'
+import {Register} from './components/auth/Register'
 
 const App = () => {
   return (
@@ -12,6 +14,9 @@ const App = () => {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
         <Route path="/about">
           <About />
