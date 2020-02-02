@@ -1,0 +1,13 @@
+.dashboardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+    background-color: #36393e;
+    .dashboardTitle {
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+}

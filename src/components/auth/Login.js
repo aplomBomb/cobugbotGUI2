@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import {AppContext} from '../AppContext'
+import { AppContext } from "../AppContext";
 import { Link } from "react-router-dom";
-import history from '../../history'
+import history from "../../history";
 
 export const Login = () => {
-  const {isLoggedIn, loginUser} = useContext(AppContext)
+  const { isLoggedIn, loginUser } = useContext(AppContext);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -13,7 +13,6 @@ export const Login = () => {
 
   const onChange = e => {
     setLoginInfo({ ...loginInfo, [e.target.id]: e.target.value });
-    console.log(e.target.id)
   };
 
   const onSubmit = e => {
@@ -22,13 +21,8 @@ export const Login = () => {
       email: loginInfo.email,
       password: loginInfo.password
     };
-    console.log('onSubmit: ', userData);
-    loginUser(userData)
+    loginUser(userData);
   };
-
-  useEffect(() => {
-    if (isLoggedIn) history.push('/dashboard')  
-  })
 
   return (
     <div className="container">
@@ -59,7 +53,7 @@ export const Login = () => {
             </div>
             <div className="input-field col s12">
               <input
-                onChange={(e) => onChange(e)}
+                onChange={e => onChange(e)}
                 value={loginInfo.password}
                 error={
                   loginInfo && loginInfo.errors && loginInfo.errors.password
