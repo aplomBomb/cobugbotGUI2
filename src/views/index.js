@@ -1,4 +1,4 @@
-export * from './About/index'
+export * from './Dashboard/index'
 export * from './FouRoFour/index'
 export * from './Home/index'
 export * from './Login/index'

@@ -19,12 +19,16 @@ export const AppContextProvider = props => {
   const loginUser = (userData) => {
       axios.post('/api/users/login', userData)
       .then(res => {
-          const {token} = res.userData
+          const {token} = res.data
           localStorage.setItem('jwtToken', token)
           setAuthToken(token)
           const decoded = jwt_decode(token)
           setCurrentUser(decoded)
-      }).catch(error => console.log(error))
+          setIsLoggedIn(true)
+      }).catch(error => {
+          console.log(error.response.data)
+          setIsLoggedIn(false)
+        })
   }
 
   const logUserOut = () => {
