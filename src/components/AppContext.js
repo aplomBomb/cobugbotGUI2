@@ -13,7 +13,7 @@ export const AppContextProvider = props => {
     axios
       .post("/api/users/register", userData)
       .then(res => history.push("/login"))
-      .catch(error => console.log(error));
+      .catch(error => console.log(error.response.data));
   };
 
   const loginUser = (userData) => {
