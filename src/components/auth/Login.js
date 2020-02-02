@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import {AppContext} from '../AppContext'
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+  const {isLoggedIn} = useContext(AppContext)
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -21,6 +23,8 @@ export const Login = () => {
     };
     console.log('onSubmit: ', userData);
   };
+
+  useEffect(() => console.log(isLoggedIn))
 
   return (
     <div className="container">
