@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {AppContext} from '../AppContext'
 import { Link } from "react-router-dom";
+import history from '../../history'
 
 export const Register = () => {
+  const {registerUser} = useContext(AppContext)
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -22,7 +25,9 @@ export const Register = () => {
       password: credentials.password,
       password2: credentials.password2
     };
-    console.log(newUser);
+    console.log('New User: ', newUser);
+
+    registerUser(newUser, history)
   };
 
 

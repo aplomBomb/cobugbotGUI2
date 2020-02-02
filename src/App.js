@@ -1,15 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import "./index.scss";
 import { AppContextProvider } from "./components/AppContext";
 import { Splash, About, Home, FouRoFour } from "./views/index";
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
+import history from './history'
 
 const App = () => {
   return (
     <AppContextProvider>
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route exact path="/">
             <Splash />
