@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import jwt from "jsonwebtoken";
 import setAuthToken from "../utils/setAuthToken";
 import history from "../history";
+import { set } from "mongoose";
 
 export const AppContext = React.createContext({});
 
@@ -18,6 +20,12 @@ export const AppContextProvider = props => {
       .catch(error => console.log(error.response.data));
   };
 
+  const decodeToken = token => {
+    const decodedToken = jwt_decode(token);
+    setCurrentUser(decodedToken);
+    setIsLoggedIn(true);
+  };
+
   const loginUser = userData => {
     setUserLoading(true);
     axios
@@ -29,17 +37,18 @@ export const AppContextProvider = props => {
         const decoded = jwt_decode(token);
         setCurrentUser(decoded);
         setIsLoggedIn(true);
-        setUserLoading(false)
+        setUserLoading(false);
       })
       .catch(error => {
         console.log(error);
-        setIsLoggedIn(false)
+        setIsLoggedIn(false);
       });
   };
 
   const logUserOut = () => {
     localStorage.removeItem("jwtToken");
     setAuthToken(false);
+    setIsLoggedIn(false)
     setCurrentUser({});
   };
 
@@ -57,7 +66,8 @@ export const AppContextProvider = props => {
         registerUser,
         loginUser,
         logUserOut,
-        userLoading
+        userLoading,
+        decodeToken
       }}
     >
       {props.children}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import history from "../../history";
 
 export const Login = () => {
-  const { isLoggedIn, loginUser } = useContext(AppContext);
+  const { isLoggedIn, loginUser, setIsLoggedIn, decodeToken } = useContext(AppContext);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -23,6 +23,17 @@ export const Login = () => {
     };
     loginUser(userData);
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("jwtToken")) {
+      const token = localStorage.jwtToken.split(' ')
+      decodeToken(token[1])
+    } 
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) history.push('/dashboard')
+  })
 
   return (
     <div className="container">
