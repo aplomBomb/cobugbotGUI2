@@ -4,7 +4,6 @@ import jwt_decode from "jwt-decode";
 import jwt from "jsonwebtoken";
 import setAuthToken from "../utils/setAuthToken";
 import history from "../history";
-import { set } from "mongoose";
 
 export const AppContext = React.createContext({});
 
@@ -12,12 +11,22 @@ export const AppContextProvider = props => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [userLoading, setUserLoading] = useState(false);
+  const [loginError, setLoginError] = useState({})
+  const [registrationError, setRegistrationError] = useState({})
+
+  const fetchInsultCount = () => {
+    axios.post("/api/insults/fetchInsults")
+    .then(res => console.log('insult response from context', res))
+  }
 
   const registerUser = (userData, history) => {
     axios
       .post("/api/users/register", userData)
       .then(res => history.push("/login"))
-      .catch(error => console.log(error.response.data));
+      .catch(error => {
+        console.log(error.response.data)
+        setRegistrationError(error.response.data)
+      })
   };
 
   const decodeToken = token => {
@@ -38,10 +47,12 @@ export const AppContextProvider = props => {
         setCurrentUser(decoded);
         setIsLoggedIn(true);
         setUserLoading(false);
+        setLoginError({})
       })
       .catch(error => {
-        console.log(error);
+        console.log('this is the error: ', error.response.data);
         setIsLoggedIn(false);
+        setLoginError(error.response.data)
       });
   };
 
@@ -67,7 +78,10 @@ export const AppContextProvider = props => {
         loginUser,
         logUserOut,
         userLoading,
-        decodeToken
+        decodeToken,
+        loginError,
+        registrationError,
+        fetchInsultCount
       }}
     >
       {props.children}

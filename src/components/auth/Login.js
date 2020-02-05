@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import history from "../../history";
 
 export const Login = () => {
-  const { isLoggedIn, loginUser, setIsLoggedIn, decodeToken } = useContext(AppContext);
+  const { isLoggedIn, loginUser, loginError, decodeToken } = useContext(
+    AppContext
+  );
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -26,14 +28,23 @@ export const Login = () => {
 
   useEffect(() => {
     if (localStorage.getItem("jwtToken")) {
-      const token = localStorage.jwtToken.split(' ')
-      decodeToken(token[1])
-    } 
+      const token = localStorage.jwtToken.split(" ");
+      decodeToken(token[1]);
+    }
   }, []);
 
   useEffect(() => {
-    if (isLoggedIn) history.push('/dashboard')
-  })
+    if (isLoggedIn) history.push("/dashboard");
+  });
+
+  useEffect(() => {
+    setLoginInfo({
+      ...loginInfo,
+      errors: loginError
+    });
+  }, [loginError]);
+
+  useEffect(() => console.log(loginInfo.errors));
 
   return (
     <div className="container">
@@ -56,23 +67,30 @@ export const Login = () => {
               <input
                 onChange={onChange}
                 value={loginInfo.email}
-                error={loginInfo && loginInfo.errors && loginInfo.errors.email}
                 id="email"
                 type="email"
               />
               <label htmlFor="email">Email</label>
+              <div className="emailErrorDiv">
+                {(loginInfo &&
+                  loginInfo.errors &&
+                  loginInfo.errors.emailnotfound) ||
+                  (loginInfo && loginInfo.errors && loginInfo.errors.email)}
+              </div>
             </div>
             <div className="input-field col s12">
               <input
                 onChange={e => onChange(e)}
                 value={loginInfo.password}
-                error={
-                  loginInfo && loginInfo.errors && loginInfo.errors.password
-                }
                 id="password"
                 type="password"
               />
               <label htmlFor="password">Password</label>
+              <div className="passwordErrorDiv">
+                {loginInfo &&
+                  loginInfo.errors &&
+                  loginInfo.errors.passwordincorrect}
+              </div>
             </div>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <button

@@ -1,10 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { AppContext } from "../../components/AppContext";
 import { Header } from "../../components/Header";
 import history from "../../history";
 
 export const Dashboard = () => {
-  const { isLoggedIn, userLoading } = useContext(AppContext);
+  const { isLoggedIn, userLoading, fetchInsultCount } = useContext(AppContext);
 
   useEffect(() => {
     if (!isLoggedIn) history.push("/login");
@@ -16,7 +16,11 @@ export const Dashboard = () => {
       {userLoading ? (
         <div>LOADING</div>
       ) : (
-        <span className="dashboardTitle">This is the Dashboard</span>
+        <>
+          <span className="dashboardTitle">This is the Dashboard</span>
+
+          <button onClick={() => fetchInsultCount}></button>
+        </>
       )}
     </div>
   );
